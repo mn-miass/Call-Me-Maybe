@@ -4,7 +4,7 @@ from pydantic import ValidationError
 from .parse_arguments import parse_argument
 from .load_file import load_file
 from .parse_file import parse_input, parse_functions_definition
-from .parse_prompt import ValidateData
+from .parse_data import ValidateData
 from .display import display_loading, display_parsing
 
 if __name__ == "__main__":
@@ -23,7 +23,8 @@ if __name__ == "__main__":
     try:
         ValidateData(data=input_data)
         ValidateData(data=functions_definition_data)
-    except ValidationError:
+    except ValidationError as e:
+        print(e.errors()[0]["msg"] + str(e.errors()[0]["loc"]) + e.errors()[0]["type"])
         sys.exit()
 
     input_data = parse_input(input_data)

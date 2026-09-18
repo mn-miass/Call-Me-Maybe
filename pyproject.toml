@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "llm-sdk>=1.0.1",
+    "llm-sdk",
 ]
 
 
@@ -14,4 +14,4 @@ members = ["llm_sdk"]
 
 
 [tool.uv.sources]
-llm_sdk = { workspace = true }
+llm-sdk = { workspace = true }
