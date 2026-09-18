@@ -1,5 +1,5 @@
 from pydantic import ValidationError
-from .parse_prompt import Prompt, FunctionDefinition
+from .parse_data import Prompt, FunctionDefinition
 
 
 
