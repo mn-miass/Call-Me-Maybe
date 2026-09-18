@@ -6,6 +6,7 @@ from .load_file import load_file
 from .parse_file import parse_input, parse_functions_definition
 from .parse_data import ValidateData
 from .display import display_loading, display_parsing
+from .build_prompt import build_prompt
 
 if __name__ == "__main__":
     parse = parse_argument()
@@ -34,3 +35,5 @@ if __name__ == "__main__":
 
     if not input_data or not functions_definition_data:
         sys.exit()
+
+    prompt = build_prompt(functions_definition_data)

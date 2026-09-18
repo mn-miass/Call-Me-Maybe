@@ -13,6 +13,7 @@ class Prompt(BaseModel):
     model_config = ConfigDict(extra="forbid")
     prompt: str = Field(min_legth = 1)
 
+    #need to be checked
     @model_validator(mode="after")
     def check(self):
         if len(self.prompt) == 0:
