@@ -5,8 +5,11 @@ from .parse_arguments import parse_argument
 from .load_file import load_file
 from .parse_file import parse_input, parse_functions_definition
 from .parse_data import ValidateData
-from .display import display_loading, display_parsing
+from .display import display_loading, display_parsing, display_model, display_model_error
 from .build_prompt import build_prompt
+from .encode_files import encode_input, load_vocab
+
+from llm_sdk import Small_LLM_Model
 
 if __name__ == "__main__":
     parse = parse_argument()
@@ -14,6 +17,7 @@ if __name__ == "__main__":
     model = parse.model
     input = parse.input
     functions_definition = parse.functions_definition
+    output = parse.output
 
     input_data = load_file(input)
     display_loading(input, input_data)
@@ -37,3 +41,13 @@ if __name__ == "__main__":
         sys.exit()
 
     prompt = build_prompt(functions_definition_data)
+
+    display_model(model)
+    try:
+        model = Small_LLM_Model(model_name=model)
+    except Exception:
+        display_model_error(model)
+        sys.exit()
+
+    input_encoded = encode_input(model, input_data)
+    load_vocab(model)

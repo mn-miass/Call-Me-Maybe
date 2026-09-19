@@ -13,3 +13,9 @@ def display_parsing(file_path, result):
     else:
         print(f"✅ Parsing looks clean in the {file_path}\n")
 
+def display_model(model_name):
+    print(f"🤖 Loading Model {model_name}")
+
+
+def display_model_error(model):
+    print(f"❌ {model} Model not found or failed to download")
