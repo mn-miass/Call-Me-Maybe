@@ -1,8 +1,0 @@
-[ 
-    "{",
-        "prompt", ":", "THE_PROMPT",
-        "name", ":", "fn_name",
-        "parameters", ":",
-            "arguments",
-    "{"
-]

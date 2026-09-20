@@ -19,3 +19,11 @@ def display_model(model_name):
 
 def display_model_error(model):
     print(f"❌ {model} Model not found or failed to download")
+
+
+def display_creatng_ids():
+    print(f"🔤 Creating The IDS ...")
+
+
+def processing_prompt(prompt):
+    print("⚙️ Processing The prompt {prompt}")
