@@ -5,6 +5,8 @@ import logging
 from .argument_parser import argument_parser
 from .display_info import display_checking_file
 
+
+
 logging.basicConfig(
         filename ="log.log",
         level = logging.DEBUG,
@@ -24,10 +26,10 @@ class File():
 
 class ParsingFiles():
     def __init__(self):
+        self.valid = True
         self.get_arguments()
         self.check_files()
-        self.valid = True
-
+        self.exist_if_error()
 
     def get_arguments(self):
         parse = argument_parser()
@@ -39,7 +41,6 @@ class ParsingFiles():
             f"Getting all the arguments input={self.input} output={self.output} functions={self.functions_definition}"
         )
 
-
     def check_files(self):
         self.input_file = File(self.input, "r")
         self.output_file = File(self.output, "w")
@@ -47,23 +48,21 @@ class ParsingFiles():
 
         self.files = [self.input_file, self.output_file, self.functions_definition_file]
         for file in self.files:
-            file.error = self.check_file(file)
+            self.check_file(file)
 
         for file in self.files:
             display_checking_file(file.name, file.error)
 
-
     def exist_if_error(self):
         for file in self.files:
-            if not file.error:
+            if file.error:
                 logging.error(
                     f"{file.name}"
                 )
-                sys.exist()
+                sys.exit()
             logging.info(
                 f"{file.name} Passed"
             )
-
 
     @staticmethod
     def check_file(file):
@@ -80,6 +79,3 @@ class ParsingFiles():
                 e
             )
             file.error = e
-
-
-

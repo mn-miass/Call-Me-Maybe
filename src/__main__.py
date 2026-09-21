@@ -71,7 +71,26 @@
 
 
 from .parsing_files import ParsingFiles
-from .parsing_data import Prompt, FunctionDefinition, DataStructur
+from .parsing_data import Parse_data
+from .display_info import display_data
 
 
 files = ParsingFiles()
+data = Parse_data(
+    files.input_file.data,
+    files.functions_definition_file.data
+)
+
+
+display_data(
+    files.input_file.name,
+    data.errors_input
+)
+
+display_data(
+    files.input_file.name,
+    data.errors_functions
+)
+
+if data.is_valid:
+    pass
