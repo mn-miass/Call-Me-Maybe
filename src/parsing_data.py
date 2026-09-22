@@ -1,12 +1,14 @@
-from pydantic import BaseModel, Field, ConfigDict, ValidationError
+from pydantic import BaseModel, Field, ConfigDict, ValidationError, model_validator
 from typing import Dict
 from enum import Enum
+import keyword
 import logging
 
 logging.basicConfig(
     filename = "log.log",
     level = logging.INFO,
-    format = "%(asctime)s - %(levelname)s - %(message)s"
+    format = "%(asctime)s - %(levelname)s - %(message)s",
+    filemode = "w"
 )
 
 
@@ -41,6 +43,18 @@ class FunctionDefinition(BaseModel):
     parameters: Dict[str, Parameter]
     returns: ReturnType
 
+    @model_validator(mode="after")
+    def check(self):
+        if keyword.iskeyword(self.name):
+            raise ValidationError(
+                f"{self.name} cant be a keyword"
+            )
+        if not self.name.isidentifier():
+            raise ValidationError(
+                f"{self.name} Cant be function name"
+            )
+
+
 
 class Parse_data():
     def __init__(self, input_data, functions_data):
@@ -48,6 +62,8 @@ class Parse_data():
         self.functions_data = functions_data
         self.errors_input = []
         self.errors_functions = []
+        self.parsed_input_data = []
+        self.parsed_function_data = []
         self.check_input()
         self.check_functions()
         self.is_valid()
@@ -55,7 +71,8 @@ class Parse_data():
     def check_input(self):
         for element in self.input_data:
             try:
-                Prompt(**element)
+                data = Prompt(**element)
+                self.parsed_input_data.append(data)
                 logging.info(f"{element} Was Validated Successfully")
             except ValidationError as e:
                 self.errors_input.append(
@@ -66,7 +83,8 @@ class Parse_data():
     def check_functions(self):
         for element in self.functions_data:
             try:
-                FunctionDefinition(**element)
+                data = FunctionDefinition(**element)
+                self.parsed_function_data.append(data)
                 logging.info(f"{element} Was Validated Successfully")
             except ValidationError as e:
                 self.errors_functions.append(

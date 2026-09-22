@@ -10,7 +10,8 @@ from .display_info import display_checking_file
 logging.basicConfig(
         filename ="log.log",
         level = logging.DEBUG,
-        format = "%(asctime)s - %(levelname)s - %(message)s"
+        format = "%(asctime)s - %(levelname)s - %(message)s",
+        filemode = "w"
     )
 
 class File():
@@ -19,7 +20,7 @@ class File():
         self.permission = permission
         self.data = None
         self.error = None
-        logging.info(
+        logging.debug(
             f"Creating File Object {self.name} with permissions {self.permission}"
         )
 
@@ -37,7 +38,7 @@ class ParsingFiles():
         self.output = parse.output
         self.functions_definition = parse.functions_definition
         self.model = parse.model
-        logging.info(
+        logging.debug(
             f"Getting all the arguments input={self.input} output={self.output} functions={self.functions_definition}"
         )
 
@@ -58,6 +59,9 @@ class ParsingFiles():
             if file.error:
                 logging.error(
                     f"{file.name}"
+                )
+                logging.critical(
+                    "EXITING THE FILE"
                 )
                 sys.exit()
             logging.info(
