@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, ConfigDict, ValidationError, model_validator
 from typing import Dict
 from enum import Enum
+
 import keyword
 import logging
 
@@ -13,7 +14,6 @@ logging.basicConfig(
 
 
 class DataStructur(BaseModel):
-    #model_config = ConfigDict(extra="forbid")
     data: list[Dict] = Field(min_length = 1)
 
 
@@ -53,7 +53,7 @@ class FunctionDefinition(BaseModel):
             raise ValidationError(
                 f"{self.name} Cant be function name"
             )
-
+        return self
 
 
 class Parse_data():
@@ -80,6 +80,7 @@ class Parse_data():
                 )
                 logging.error(f"{element} {self.errors_input[-1]}")
 
+
     def check_functions(self):
         for element in self.functions_data:
             try:
@@ -91,6 +92,7 @@ class Parse_data():
                     e.errors()[0]["msg"] + str(e.errors()[0]["loc"]) + e.errors()[0]["type"]
                 )
                 logging.error(f"{element} {self.errors_functions[-1]}")
+  
 
     def is_valid(self):
         self.valid = not self.errors_input and not self.errors_functions

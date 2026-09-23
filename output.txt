@@ -1,0 +1,15 @@
+ Please  put  your  answer  in  the  box .
+ The  user  is  asking  for  the  sum  of   2  and   3 .  The  function  that  matches  this  is  fn _add _numbers .  The  parameters  are  a :   2  and  b :   3 .  The  return  type  is  number  Please  put  the  answer  in  the  box .
+ The  user  is  asking  for  the  sum  of   2 6 5  and   3 4 5 .  The  function  that  can  be  used  here  is  fn _add _numbers .  The  parameters  are  a  and  b ,  which  are   2 6 
+ The  user 's  input  is  " G reet  sh rek "  and  the  correct  function  to  use  is  fn _g reet .  The  parameters  are  name :  " sh rek ".  So  the  output  should  be  {" name ":" fn _g reet ",  " args ":  {" name ":" 
+ The  user 's  input  is  " G reet  john "  and  the  correct  function  to  use  is  " fn _g reet "  with  the  parameter  " name ":  " john ".  The  output  should  be  a  JSON  object  with  the  function  name  and  the  parameters .
+ Answer :
+ {"  and  return  the  result 
+ The  correct  function  to  use  is  fn _reverse _string  with  the  parameter  s :  ' hello '
+ The  correct  JSON  output  is  {" name ":" fn _reverse _string ",  " args ":  {" s ":  " hello "}}
+ Answer :
+ {" name ":" fn _reverse  and  return  the  result 
+ The  correct  function  to  use  is  fn _reverse _string  with  the  parameter  s :  ' world '
+ The  correct  JSON  output  is  {" name ":" fn _reverse _string ",  " args ":  {" s ":  " world "}}
+ Answer :
+ 

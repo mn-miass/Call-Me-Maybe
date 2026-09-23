@@ -6,7 +6,7 @@ import sys
 from .parsing_files import ParsingFiles
 from .parsing_data import Parse_data
 from .display_info import display_data,display_model, display_model_error
-from .constrained_decoding import ConstrainedDeoding
+from .constrained_decoding import ConstrainedDecoding
 from llm_sdk import Small_LLM_Model
 
 
@@ -63,7 +63,7 @@ logging.info(
     "\n\n=========================================Constrained Decoding===========================================\n\n"
 )
 
-cd = ConstrainedDeoding(
+cd = ConstrainedDecoding(
     model,
     data.parsed_input_data,
     data.parsed_function_data
@@ -71,5 +71,5 @@ cd = ConstrainedDeoding(
 
 cd.generate_prompt()
 cd.get_vocabulary()
-
-cd.processing_prompts()
+cd.processing_system_prompt()
+cd.main_loop()
