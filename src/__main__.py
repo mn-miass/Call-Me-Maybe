@@ -66,10 +66,12 @@ logging.info(
 cd = ConstrainedDecoding(
     model,
     data.parsed_input_data,
-    data.parsed_function_data
+    data.parsed_function_data,
+    files.output_file
 )
 
 cd.generate_prompt()
 cd.get_vocabulary()
 cd.processing_system_prompt()
 cd.main_loop()
+cd.display_json()
