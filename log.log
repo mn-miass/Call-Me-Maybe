@@ -1,392 +1,203 @@
-2026-09-25 23:56:37,770 - INFO - 
+2026-09-26 14:14:09,948 - INFO - 
 
 =========================================PARSING PART===========================================
 
 
-2026-09-25 23:56:37,773 - DEBUG - Getting all the arguments input=data/input/function_calling_tests.json output=output.json functions=data/input/functions_definition.json
-2026-09-25 23:56:37,773 - DEBUG - Creating File Object data/input/function_calling_tests.json with permissions r
-2026-09-25 23:56:37,773 - DEBUG - Creating File Object output.json with permissions w
-2026-09-25 23:56:37,773 - DEBUG - Creating File Object data/input/functions_definition.json with permissions r
-2026-09-25 23:56:37,773 - INFO - File data/input/function_calling_tests.json was Loaded Successfully
-2026-09-25 23:56:37,774 - INFO - File output.json was Loaded Successfully
-2026-09-25 23:56:37,774 - INFO - File data/input/functions_definition.json was Loaded Successfully
-2026-09-25 23:56:37,775 - INFO - data/input/function_calling_tests.json Passed
-2026-09-25 23:56:37,775 - INFO - output.json Passed
-2026-09-25 23:56:37,775 - INFO - data/input/functions_definition.json Passed
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'What is the sum of 2 and 3?'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'What is the sum of 265 and 345?'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'Greet shrek'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'Greet john'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': "Reverse the string 'hello'"} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': "Reverse the string 'world'"} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'What is the square root of 16?'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'Calculate the square root of 144'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': 'Replace all numbers in "Hello 34 I\'m 233 years old" with NUMBERS'} Was Validated Successfully
-2026-09-25 23:56:37,775 - INFO - {'prompt': "Replace all vowels in 'Programming is fun' with asterisks"} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'prompt': "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'"} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'name': 'fn_add_numbers', 'description': 'Add two numbers together and return their sum.', 'parameters': {'a': {'type': 'number'}, 'b': {'type': 'number'}}, 'returns': {'type': 'number'}} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'name': 'fn_greet', 'description': 'Generate a greeting message for a person by name.', 'parameters': {'name': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'name': 'fn_reverse_string', 'description': 'Reverse a string and return the reversed result.', 'parameters': {'s': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'name': 'fn_get_square_root', 'description': 'Calculate the square root of a number.', 'parameters': {'a': {'type': 'number'}}, 'returns': {'type': 'number'}} Was Validated Successfully
-2026-09-25 23:56:37,776 - INFO - {'name': 'fn_substitute_string_with_regex', 'description': 'Replace all occurrences matching a regex pattern in a string.', 'parameters': {'source_string': {'type': 'string'}, 'regex': {'type': 'string'}, 'replacement': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
-2026-09-25 23:56:37,777 - INFO - 
+2026-09-26 14:14:09,951 - DEBUG - Getting all the arguments input=data/input/function_calling_tests.json output=output.json functions=data/input/functions_definition.json
+2026-09-26 14:14:09,951 - DEBUG - Creating File Object data/input/function_calling_tests.json with permissions r
+2026-09-26 14:14:09,951 - DEBUG - Creating File Object output.json with permissions w
+2026-09-26 14:14:09,951 - DEBUG - Creating File Object data/input/functions_definition.json with permissions r
+2026-09-26 14:14:09,951 - INFO - File data/input/function_calling_tests.json was Loaded Successfully
+2026-09-26 14:14:09,952 - INFO - File output.json was Loaded Successfully
+2026-09-26 14:14:09,952 - INFO - File data/input/functions_definition.json was Loaded Successfully
+2026-09-26 14:14:09,952 - INFO - data/input/function_calling_tests.json Passed
+2026-09-26 14:14:09,952 - INFO - output.json Passed
+2026-09-26 14:14:09,952 - INFO - data/input/functions_definition.json Passed
+2026-09-26 14:14:09,953 - INFO - {'prompt': 'What is the sum of 2 and 3?'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'What is the sum of 265 and 345?'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'Greet shrek'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'Greet john'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': "Reverse the string 'hello'"} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': "Reverse the string 'world'"} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'What is the square root of 16?'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'Calculate the square root of 144'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': 'Replace all numbers in "Hello 34 I\'m 233 years old" with NUMBERS'} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': "Replace all vowels in 'Programming is fun' with asterisks"} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'prompt': "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'"} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'name': 'fn_add_numbers', 'description': 'Add two numbers together and return their sum.', 'parameters': {'a': {'type': 'number'}, 'b': {'type': 'number'}}, 'returns': {'type': 'number'}} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'name': 'fn_greet', 'description': 'Generate a greeting message for a person by name.', 'parameters': {'name': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'name': 'fn_reverse_string', 'description': 'Reverse a string and return the reversed result.', 'parameters': {'s': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
+2026-09-26 14:14:09,954 - INFO - {'name': 'fn_get_square_root', 'description': 'Calculate the square root of a number.', 'parameters': {'a': {'type': 'number'}}, 'returns': {'type': 'number'}} Was Validated Successfully
+2026-09-26 14:14:09,955 - INFO - {'name': 'fn_substitute_string_with_regex', 'description': 'Replace all occurrences matching a regex pattern in a string.', 'parameters': {'source_string': {'type': 'string'}, 'regex': {'type': 'string'}, 'replacement': {'type': 'string'}}, 'returns': {'type': 'string'}} Was Validated Successfully
+2026-09-26 14:14:09,955 - INFO - 
 
 =========================================Loading Model===========================================
 
 
-2026-09-25 23:56:37,812 - DEBUG - connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
-2026-09-25 23:56:37,866 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c4b9f60ecf0>
-2026-09-25 23:56:37,866 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7c4b9f7b6a80> server_hostname='huggingface.co' timeout=10
-2026-09-25 23:56:37,887 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c4b9f75ee90>
-2026-09-25 23:56:37,887 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:37,887 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:37,887 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:37,887 - DEBUG - send_request_body.complete
-2026-09-25 23:56:37,887 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,017 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'234'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:37 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a35-7c2449115e38b87f6c259864;1d2b3002-8669-42f5-bdf9-806200949e8e'), (b'RateLimit', b'"resolvers";r=2987;t=39'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'uKQ9hTRvaKjRPLuuaMourVaD52TJY3stZaIkyZJkQ99Wk97ADUFu4Q=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,017 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-09-25 23:56:38,021 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,021 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,021 - DEBUG - response_closed.started
-2026-09-25 23:56:38,022 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,022 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,022 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,022 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,022 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,022 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,043 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'726'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 16 Feb 2026 02:52:15 GMT'), (b'ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6992865f-7363d256676b4a7f67e7bee2'), (b'RateLimit', b'"resolvers";r=2998;t=161'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'uaDo1T1ZXEhFZxUh5muLHgxQOPk02D9n7nveyRIzTqoPyokOFTZRqQ=='), (b'Age', b'19170263'), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,043 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22 "HTTP/1.1 200 OK"
-2026-09-25 23:56:38,043 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,043 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,044 - DEBUG - response_closed.started
-2026-09-25 23:56:38,044 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,051 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,051 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,051 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,051 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,051 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,178 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'254'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:38 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22417d038a63fa3de29cfde265caedae14d1a58d92%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a36-1a4b910c21ddbdcf4d95b2db;b7d4176f-aac7-4fb1-95f0-b614e5af6840'), (b'RateLimit', b'"resolvers";r=2986;t=38'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"417d038a63fa3de29cfde265caedae14d1a58d92"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'o-BVnaq678ZTqTDtzan7s3V4BAJyyufw6OmsJZHEZIuB49hEc8EbrA=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,178 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-09-25 23:56:38,178 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,179 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,179 - DEBUG - response_closed.started
-2026-09-25 23:56:38,179 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,179 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-2026-09-25 23:56:38,179 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,180 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,180 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,180 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,180 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,200 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'9732'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 06 Jun 2026 08:58:21 GMT'), (b'ETag', b'"417d038a63fa3de29cfde265caedae14d1a58d92"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a23e12d-3735cedb59448e0229ecafe3'), (b'RateLimit', b'"resolvers";r=2998;t=5'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'NaysWY65pdDbRGRWCxXORXzYZ5R7aV3-KXZbpkC5Ehx-_lKfZersnQ=='), (b'Age', b'9644297'), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,200 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22417d038a63fa3de29cfde265caedae14d1a58d92%22 "HTTP/1.1 200 OK"
-2026-09-25 23:56:38,200 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:38,201 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,201 - DEBUG - response_closed.started
-2026-09-25 23:56:38,201 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,205 - DEBUG - send_request_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:38,205 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,205 - DEBUG - send_request_body.started request=<Request [b'GET']>
-2026-09-25 23:56:38,205 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,205 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:38,338 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:38 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a36-1fc4b4c075fedc391bfa095a;be4e49a7-1cfb-4441-89d2-2bde5fe3930f'), (b'RateLimit', b'"api";r=493;t=38'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'Jto3zC0OaVC_TnaasYTCglT_NLY4fmq5kLTR5WYYrzBMTl0YU0wZAQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,338 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-09-25 23:56:38,338 - DEBUG - receive_response_body.started request=<Request [b'GET']>
-2026-09-25 23:56:38,339 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,339 - DEBUG - response_closed.started
-2026-09-25 23:56:38,339 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,340 - DEBUG - send_request_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:38,340 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,340 - DEBUG - send_request_body.started request=<Request [b'GET']>
-2026-09-25 23:56:38,340 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,340 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:38,474 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:38 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"580-1RdaVJK7N2I3ddnDRM1ktJr5mAw"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a36-10c2fb566895b2f8238178d7;2433275f-2260-4033-b298-34def62273c4'), (b'RateLimit', b'"api";r=492;t=38'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'jDnkdbxb1BpTaLaPPBLR6Zs_wXoddANSpN4pKOAoAf1HTxxHbRHeMw=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:38,475 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-09-25 23:56:38,475 - DEBUG - receive_response_body.started request=<Request [b'GET']>
-2026-09-25 23:56:38,475 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:38,475 - DEBUG - response_closed.started
-2026-09-25 23:56:38,475 - DEBUG - response_closed.complete
-2026-09-25 23:56:38,899 - DEBUG - send_request_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:38,899 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:38,899 - DEBUG - send_request_body.started request=<Request [b'GET']>
-2026-09-25 23:56:38,899 - DEBUG - send_request_body.complete
-2026-09-25 23:56:38,899 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
-2026-09-25 23:56:39,029 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:38 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"237f-X2U7gGZzY0+MDilJA9g5iH6elOE"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a36-73be081f35ff42735f5ff9b2;043694c2-d8ff-4b37-9159-d35a6aaa3773'), (b'RateLimit', b'"api";r=491;t=38'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'016saeE0PfgcOkg7wubLrPgGRLsZKftlRw3HwTv3Ocp28BGQQOfARw=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:39,029 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B "HTTP/1.1 200 OK"
-2026-09-25 23:56:39,029 - DEBUG - receive_response_body.started request=<Request [b'GET']>
-2026-09-25 23:56:39,030 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:39,030 - DEBUG - response_closed.started
-2026-09-25 23:56:39,030 - DEBUG - response_closed.complete
-2026-09-25 23:56:39,033 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,033 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:39,033 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,033 - DEBUG - send_request_body.complete
-2026-09-25 23:56:39,033 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,165 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'234'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:39 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a37-6e86cb92276f9ba0777ca5d6;7eaec355-18f4-404d-83f6-82700b15a013'), (b'RateLimit', b'"resolvers";r=2985;t=37'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'emmIheJ_op6yVTXiRiMIHQtMIJIggmEZO0pxMcn6HSJR2-NlvnjeEg=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:39,165 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-09-25 23:56:39,165 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,165 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:39,165 - DEBUG - response_closed.started
-2026-09-25 23:56:39,166 - DEBUG - response_closed.complete
-2026-09-25 23:56:39,166 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,166 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:39,166 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,166 - DEBUG - send_request_body.complete
-2026-09-25 23:56:39,166 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,187 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'726'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 16 Feb 2026 02:52:15 GMT'), (b'ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6992865f-7363d256676b4a7f67e7bee2'), (b'RateLimit', b'"resolvers";r=2998;t=161'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'aTrIyC6HQilNt4Qti_QurgkqV4kjzf2zEfH3i4w1XYfoxQCyZ99uHw=='), (b'Age', b'19170264'), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:39,187 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22 "HTTP/1.1 200 OK"
-2026-09-25 23:56:39,187 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:39,187 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:39,187 - DEBUG - response_closed.started
-2026-09-25 23:56:39,187 - DEBUG - response_closed.complete
-2026-09-25 23:56:42,589 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,595 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:42,595 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,595 - DEBUG - send_request_body.complete
-2026-09-25 23:56:42,595 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,722 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'256'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:42 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/generation_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%2220a8a9156fc8c3f25295ca067f61fdf120d517c5%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a3a-403652d94f4841b83bac0f38;529b02ef-f7f9-49d5-a957-78ef644e4071'), (b'RateLimit', b'"resolvers";r=2984;t=34'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'generation_config.json; filename="generation_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"20a8a9156fc8c3f25295ca067f61fdf120d517c5"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'5jzkgmTo0nXuiTGHvDbRbmKHaooHuggZjJY7eA6xM8WkJQdydwHJkA=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:42,722 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-09-25 23:56:42,723 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,723 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:42,723 - DEBUG - response_closed.started
-2026-09-25 23:56:42,723 - DEBUG - response_closed.complete
-2026-09-25 23:56:42,724 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,724 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:42,724 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,724 - DEBUG - send_request_body.complete
-2026-09-25 23:56:42,724 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,745 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'239'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 01 Jun 2026 06:28:12 GMT'), (b'ETag', b'"20a8a9156fc8c3f25295ca067f61fdf120d517c5"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a1d267c-57db90cc4ff3ed0e60d9f59d'), (b'RateLimit', b'"resolvers";r=2946;t=215'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'generation_config.json; filename="generation_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'T3FSUz0-orhUkFy0TmhvnfxyGfp5MplJ1dOUtsOB-DkS3VAxGnPBnQ=='), (b'Age', b'10085310'), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:42,745 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/generation_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%2220a8a9156fc8c3f25295ca067f61fdf120d517c5%22 "HTTP/1.1 200 OK"
-2026-09-25 23:56:42,745 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,746 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:42,746 - DEBUG - response_closed.started
-2026-09-25 23:56:42,746 - DEBUG - response_closed.complete
-2026-09-25 23:56:42,750 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,750 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:42,750 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,750 - DEBUG - send_request_body.complete
-2026-09-25 23:56:42,750 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,883 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:42 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a3a-6f3d111a60e320a331eaba95;255cbc60-e7a5-4c85-9ab6-1aba4a2af2f7'), (b'RateLimit', b'"resolvers";r=2983;t=34'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'mYd9_zeSrpJKu_gcUm-8Ro85DtXMd9vBUMK_KIBGOB41L7bacYdmSQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:42,883 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
-2026-09-25 23:56:42,883 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,883 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:42,884 - DEBUG - response_closed.started
-2026-09-25 23:56:42,884 - DEBUG - response_closed.complete
-2026-09-25 23:56:42,895 - INFO - Qwen/Qwen3-0.6B Was Loaded successfully
-2026-09-25 23:56:42,895 - INFO - 
+2026-09-26 14:14:09,992 - DEBUG - connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+2026-09-26 14:14:10,092 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7943272f2cf0>
+2026-09-26 14:14:10,092 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7943272bea80> server_hostname='huggingface.co' timeout=10
+2026-09-26 14:14:10,120 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x79432725afd0>
+2026-09-26 14:14:10,120 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,120 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,121 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,121 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,121 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,257 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'234'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:10 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d332-3840327c5d16a35a08061765;5d28e22f-c22f-4cfa-a384-06eb9c2e9846'), (b'RateLimit', b'"resolvers";r=2999;t=186'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'f2fhsk1IHs8ylkzDliVgpOdqlhBBaXDtmV_8_zrFM-dJ9fboYrq3cQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,258 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-26 14:14:10,258 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,258 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,258 - DEBUG - response_closed.started
+2026-09-26 14:14:10,258 - DEBUG - response_closed.complete
+2026-09-26 14:14:10,258 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,259 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,259 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,259 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,259 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,284 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'726'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 16 Feb 2026 02:52:15 GMT'), (b'ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6992865f-7363d256676b4a7f67e7bee2'), (b'RateLimit', b'"resolvers";r=2998;t=161'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'mYyNuSaY-V4ZashdQsDwu9l-n5DELv7a1ktWZEq3XQ2VDA8tg3NG3g=='), (b'Age', b'19221715'), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,284 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22 "HTTP/1.1 200 OK"
+2026-09-26 14:14:10,284 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,285 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,285 - DEBUG - response_closed.started
+2026-09-26 14:14:10,285 - DEBUG - response_closed.complete
+2026-09-26 14:14:10,295 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,295 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,296 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,296 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,296 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,430 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'254'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:10 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22417d038a63fa3de29cfde265caedae14d1a58d92%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d332-73a1c6480153746200419ccc;39d04a94-9246-4559-89fb-e0697a47cfa4'), (b'RateLimit', b'"resolvers";r=2998;t=186'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"417d038a63fa3de29cfde265caedae14d1a58d92"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'GwL0FPm-2mRZpuQeY7LYXN8VbcZ5aoYipQEIXa0MxjTf0Tf25iGmjQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,430 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-26 14:14:10,430 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,431 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,431 - DEBUG - response_closed.started
+2026-09-26 14:14:10,431 - DEBUG - response_closed.complete
+2026-09-26 14:14:10,431 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-26 14:14:10,431 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,431 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,432 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,432 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,432 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,457 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'9732'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 06 Jun 2026 08:58:21 GMT'), (b'ETag', b'"417d038a63fa3de29cfde265caedae14d1a58d92"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a23e12d-3735cedb59448e0229ecafe3'), (b'RateLimit', b'"resolvers";r=2998;t=5'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'zh4i3ofhRGAqPDcNKpEyQePEw9xB1XnMeMUFJIY08HPNywsiF-cukg=='), (b'Age', b'9695749'), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,457 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22417d038a63fa3de29cfde265caedae14d1a58d92%22 "HTTP/1.1 200 OK"
+2026-09-26 14:14:10,457 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:10,457 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,458 - DEBUG - response_closed.started
+2026-09-26 14:14:10,458 - DEBUG - response_closed.complete
+2026-09-26 14:14:10,462 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:10,462 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,462 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-09-26 14:14:10,463 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,463 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:10,598 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:10 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d332-70c005060dc7587863efdc9a;ea96f723-d578-4b66-ae6a-c650fbba4504'), (b'RateLimit', b'"api";r=499;t=186'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'RD8bAhAkX83zIW7IRE_cbWWwigpwl22aRnEPa2qtsraXus1xOfyQOQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,599 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-26 14:14:10,599 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-09-26 14:14:10,599 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,599 - DEBUG - response_closed.started
+2026-09-26 14:14:10,599 - DEBUG - response_closed.complete
+2026-09-26 14:14:10,600 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:10,600 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:10,600 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-09-26 14:14:10,600 - DEBUG - send_request_body.complete
+2026-09-26 14:14:10,600 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:10,740 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:10 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"580-1RdaVJK7N2I3ddnDRM1ktJr5mAw"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d332-577d58460e5e173603e7e0d3;9a1b1c7f-80dc-4dae-af5b-453e72ebc52b'), (b'RateLimit', b'"api";r=498;t=186'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'Dmr5o21tE5nbI7nSWDfrWtECP2N7nbhCcHkfT7X4Iw5x08ZQVzR3DA=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:10,740 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-26 14:14:10,740 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-09-26 14:14:10,741 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:10,741 - DEBUG - response_closed.started
+2026-09-26 14:14:10,741 - DEBUG - response_closed.complete
+2026-09-26 14:14:11,140 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:11,141 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:11,141 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2026-09-26 14:14:11,141 - DEBUG - send_request_body.complete
+2026-09-26 14:14:11,141 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2026-09-26 14:14:11,276 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:11 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"2383-FQ6PvDUjjfNfHQrDaTm25HEK7dA"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d333-1df65c5f5f809be7182b9e38;e971e785-55fe-42d8-a499-420ffaf5bfb6'), (b'RateLimit', b'"api";r=497;t=185'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'rSWTjFAmbpJh2LJXCdMDFhuRTLI4b8AtpUSHei-9Rbm9yauSSxo_hg=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:11,276 - INFO - HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3-0.6B "HTTP/1.1 200 OK"
+2026-09-26 14:14:11,277 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2026-09-26 14:14:11,278 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:11,278 - DEBUG - response_closed.started
+2026-09-26 14:14:11,278 - DEBUG - response_closed.complete
+2026-09-26 14:14:11,281 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,281 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:11,281 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,281 - DEBUG - send_request_body.complete
+2026-09-26 14:14:11,281 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,417 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'234'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:11 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d333-731da7fc14d59c1a05762a6d;163c3978-9bff-43e1-9ced-1e4f3e2a2445'), (b'RateLimit', b'"resolvers";r=2997;t=185'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'VvR4ABJPxOxKX2I3ewR4oj-ij_UfY3LPXZntnQDUotQD24sGt3BS9w=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:11,418 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-26 14:14:11,418 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,418 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:11,418 - DEBUG - response_closed.started
+2026-09-26 14:14:11,418 - DEBUG - response_closed.complete
+2026-09-26 14:14:11,419 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,419 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:11,419 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,419 - DEBUG - send_request_body.complete
+2026-09-26 14:14:11,419 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,444 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'726'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 16 Feb 2026 02:52:15 GMT'), (b'ETag', b'"f5c3703b78ae2a478ae15b247e9f855e0ce2107b"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6992865f-7363d256676b4a7f67e7bee2'), (b'RateLimit', b'"resolvers";r=2998;t=161'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'4WC8luEl_dKql7wnaZR5iHhA2KbuoHk04qCjIZOlRuC7V4KNYzlhjg=='), (b'Age', b'19221716'), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:11,444 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fconfig.json=&etag=%22f5c3703b78ae2a478ae15b247e9f855e0ce2107b%22 "HTTP/1.1 200 OK"
+2026-09-26 14:14:11,444 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:11,444 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:11,445 - DEBUG - response_closed.started
+2026-09-26 14:14:11,445 - DEBUG - response_closed.complete
+2026-09-26 14:14:15,922 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:15,927 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:15,927 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:15,927 - DEBUG - send_request_body.complete
+2026-09-26 14:14:15,927 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,063 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'256'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:16 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/generation_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%2220a8a9156fc8c3f25295ca067f61fdf120d517c5%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d337-7659af0a1f7e70451d0e627f;b3c3a4e1-9495-42f8-8b6e-91bf7ef7928a'), (b'RateLimit', b'"resolvers";r=2996;t=181'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'generation_config.json; filename="generation_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"20a8a9156fc8c3f25295ca067f61fdf120d517c5"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'ak7DJwqEQy6tZYFpOUj-a1Z9tV2EyRpd96lRAuyfRpZ7ONH78yuXdQ=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:16,064 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-26 14:14:16,064 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,064 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:16,064 - DEBUG - response_closed.started
+2026-09-26 14:14:16,064 - DEBUG - response_closed.complete
+2026-09-26 14:14:16,065 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,065 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:16,065 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,065 - DEBUG - send_request_body.complete
+2026-09-26 14:14:16,065 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,090 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'239'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 01 Jun 2026 06:28:12 GMT'), (b'ETag', b'"20a8a9156fc8c3f25295ca067f61fdf120d517c5"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a1d267c-57db90cc4ff3ed0e60d9f59d'), (b'RateLimit', b'"resolvers";r=2946;t=215'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'generation_config.json; filename="generation_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'vUu4LWyTII3oSI0JC5xh0nASSmRoBbCECLc8_MB3J5--5PgR03DFcw=='), (b'Age', b'10136764'), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:16,090 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/generation_config.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%2220a8a9156fc8c3f25295ca067f61fdf120d517c5%22 "HTTP/1.1 200 OK"
+2026-09-26 14:14:16,090 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,091 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:16,091 - DEBUG - response_closed.started
+2026-09-26 14:14:16,091 - DEBUG - response_closed.complete
+2026-09-26 14:14:16,098 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,098 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:16,098 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,098 - DEBUG - send_request_body.complete
+2026-09-26 14:14:16,098 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,245 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:16 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d338-49deb2422ab13cf903bc5bba;abb5ab93-2529-44cf-afe4-1691b4a63aa1'), (b'RateLimit', b'"resolvers";r=2995;t=180'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'CwSdB2NlJef5SmSofPhwRLAw-GtMFZgYdrzeT1MNIn0zi9gBPfY2hw=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:16,245 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-26 14:14:16,245 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,245 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:16,245 - DEBUG - response_closed.started
+2026-09-26 14:14:16,245 - DEBUG - response_closed.complete
+2026-09-26 14:14:16,255 - INFO - Qwen/Qwen3-0.6B Was Loaded successfully
+2026-09-26 14:14:16,255 - INFO - 
 
 =========================================Constrained Decoding===========================================
 
 
-2026-09-25 23:56:42,896 - INFO - Initializing ConstrainedDecoding | functions_count=5 input_count=11 output_file=output.json
-2026-09-25 23:56:42,896 - DEBUG - ConstrainedDecoding instance attributes set
-2026-09-25 23:56:42,896 - INFO - ENTER generate_prompt
-2026-09-25 23:56:42,896 - DEBUG - Creating the prompt
-2026-09-25 23:56:42,896 - DEBUG - Base prompt initialized, length=345
-2026-09-25 23:56:42,896 - DEBUG - Appending function to prompt: fn_add_numbers
-2026-09-25 23:56:42,896 - DEBUG -   parameter added: a (number)
-2026-09-25 23:56:42,896 - DEBUG -   parameter added: b (number)
-2026-09-25 23:56:42,896 - DEBUG - Function fn_add_numbers appended, running prompt length=512
-2026-09-25 23:56:42,896 - DEBUG - Appending function to prompt: fn_greet
-2026-09-25 23:56:42,896 - DEBUG -   parameter added: name (string)
-2026-09-25 23:56:42,896 - DEBUG - Function fn_greet appended, running prompt length=669
-2026-09-25 23:56:42,896 - DEBUG - Appending function to prompt: fn_reverse_string
-2026-09-25 23:56:42,896 - DEBUG -   parameter added: s (string)
-2026-09-25 23:56:42,896 - DEBUG - Function fn_reverse_string appended, running prompt length=831
-2026-09-25 23:56:42,896 - DEBUG - Appending function to prompt: fn_get_square_root
-2026-09-25 23:56:42,896 - DEBUG -   parameter added: a (number)
-2026-09-25 23:56:42,897 - DEBUG - Function fn_get_square_root appended, running prompt length=984
-2026-09-25 23:56:42,897 - DEBUG - Appending function to prompt: fn_substitute_string_with_regex
-2026-09-25 23:56:42,897 - DEBUG -   parameter added: source_string (string)
-2026-09-25 23:56:42,897 - DEBUG -   parameter added: regex (string)
-2026-09-25 23:56:42,897 - DEBUG -   parameter added: replacement (string)
-2026-09-25 23:56:42,897 - DEBUG - Function fn_substitute_string_with_regex appended, running prompt length=1219
-2026-09-25 23:56:42,897 - INFO - 
-the system prompt was created: 
-You are a function selector. Given a user request, output ONLY the name of the single best matching function from the list below. Do not explain. Do not add punctuation. Output nothing except the exact function name.
-If nothing matches, output: None
-Any description that use words replace or subtitute or anything simualar its a regexFunctions:
-
--   function name: fn_add_numbers, function description: Add two numbers together and return their sum. have parameter(s) a: number b: number  with return type number
--   function name: fn_greet, function description: Generate a greeting message for a person by name. have parameter(s) name: string  with return type string
--   function name: fn_reverse_string, function description: Reverse a string and return the reversed result. have parameter(s) s: string  with return type string
--   function name: fn_get_square_root, function description: Calculate the square root of a number. have parameter(s) a: number  with return type number
--   function name: fn_substitute_string_with_regex, function description: Replace all occurrences matching a regex pattern in a string. have parameter(s) source_string: string regex: string replacement: string  with return type string
-2026-09-25 23:56:42,897 - INFO - EXIT generate_prompt | final system_prompt length=1219
-2026-09-25 23:56:42,897 - INFO - ENTER get_vocabulary
-2026-09-25 23:56:42,898 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,898 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:42,898 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:42,898 - DEBUG - send_request_body.complete
-2026-09-25 23:56:42,898 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,027 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'232'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 25 Sep 2026 23:56:42 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fvocab.json=&etag=%224783fe10ac3adce15ac8f358ef5462739852c569%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab70a3a-2bd0b364017764bd6d89c421;7d47d9a7-06a2-4fdf-a9b7-1d893bad0fbf'), (b'RateLimit', b'"resolvers";r=2982;t=34'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'vocab.json; filename="vocab.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"4783fe10ac3adce15ac8f358ef5462739852c569"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'4LeVMILLNHE-37n4y3xbxIVD4evOh9cCpZyRzgBBafYrxCgmymUDtA=='), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:43,028 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
-2026-09-25 23:56:43,028 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,028 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:43,028 - DEBUG - response_closed.started
-2026-09-25 23:56:43,028 - DEBUG - response_closed.complete
-2026-09-25 23:56:43,028 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,029 - DEBUG - send_request_headers.complete
-2026-09-25 23:56:43,029 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,029 - DEBUG - send_request_body.complete
-2026-09-25 23:56:43,029 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,049 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'2776833'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 18 Jun 2026 17:18:27 GMT'), (b'ETag', b'"4783fe10ac3adce15ac8f358ef5462739852c569"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a342863-559f5a8103351aca7be3a6d6'), (b'RateLimit', b'"resolvers";r=2949;t=213'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'vocab.json; filename="vocab.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 87073b814162adabb8231b787e1902c2.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'2hjJo0GfPBujcEvIcQm1WvH2ucdDxs5qMJJOwuzkA6qU-6H9UMJ1_Q=='), (b'Age', b'8577496'), (b'Strict-Transport-Security', b'max-age=31536000')])
-2026-09-25 23:56:43,050 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fvocab.json=&etag=%224783fe10ac3adce15ac8f358ef5462739852c569%22 "HTTP/1.1 200 OK"
-2026-09-25 23:56:43,050 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
-2026-09-25 23:56:43,050 - DEBUG - receive_response_body.complete
-2026-09-25 23:56:43,050 - DEBUG - response_closed.started
-2026-09-25 23:56:43,050 - DEBUG - response_closed.complete
-2026-09-25 23:56:43,050 - DEBUG - Vocabulary path resolved: /goinfre/mn-miass/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
-2026-09-25 23:56:43,129 - INFO - Vocabulary loaded | entries=151643
-2026-09-25 23:56:43,129 - INFO - EXIT get_vocabulary
-2026-09-25 23:56:43,129 - INFO - ENTER processing_system_prompt
-2026-09-25 23:56:43,129 - DEBUG - encoding the text :
-You are a function selector. Given a user request, output ONLY the name of the single best matching function from the list below. Do not explain. Do not add punctuation. Output nothing except the exact function name.
-If nothing matches, output: None
-Any description that use words replace or subtitute or anything simualar its a regexFunctions:
-
--   function name: fn_add_numbers, function description: Add two numbers together and return their sum. have parameter(s) a: number b: number  with return type number
--   function name: fn_greet, function description: Generate a greeting message for a person by name. have parameter(s) name: string  with return type string
--   function name: fn_reverse_string, function description: Reverse a string and return the reversed result. have parameter(s) s: string  with return type string
--   function name: fn_get_square_root, function description: Calculate the square root of a number. have parameter(s) a: number  with return type number
--   function name: fn_substitute_string_with_regex, function description: Replace all occurrences matching a regex pattern in a string. have parameter(s) source_string: string regex: string replacement: string  with return type string
-2026-09-25 23:56:43,152 - INFO - text was encoded into :
-[2610, 525, 264, 729, 9367, 13, 16246, 264, 1196, 1681, 11, 2550, 26687, 279, 829, 315, 279, 3175, 1850, 12579, 729, 504, 279, 1140, 3685, 13, 3155, 537, 10339, 13, 3155, 537, 912, 61503, 13, 9258, 4302, 3650, 279, 4734, 729, 829, 624, 2679, 4302, 9071, 11, 2550, 25, 2240, 198, 8610, 4008, 429, 990, 4244, 8290, 476, 1186, 16903, 1070, 476, 4113, 1643, 928, 277, 1181, 264, 20180, 25207, 1447, 12, 256, 729, 829, 25, 5168, 2891, 32964, 11, 729, 4008, 25, 2691, 1378, 5109, 3786, 323, 470, 862, 2629, 13, 614, 5733, 1141, 8, 264, 25, 1372, 293, 25, 1372, 220, 448, 470, 943, 1372, 198, 12, 256, 729, 829, 25, 5168, 1889, 3744, 11, 729, 4008, 25, 19813, 264, 42113, 1943, 369, 264, 1697, 553, 829, 13, 614, 5733, 1141, 8, 829, 25, 914, 220, 448, 470, 943, 914, 198, 12, 256, 729, 829, 25, 5168, 43277, 3904, 11, 729, 4008, 25, 24277, 264, 914, 323, 470, 279, 27437, 1102, 13, 614, 5733, 1141, 8, 274, 25, 914, 220, 448, 470, 943, 914, 198, 12, 256, 729, 829, 25, 5168, 3062, 39794, 12993, 11, 729, 4008, 25, 20517, 279, 9334, 3704, 315, 264, 1372, 13, 614, 5733, 1141, 8, 264, 25, 1372, 220, 448, 470, 943, 1372, 198, 12, 256, 729, 829, 25, 5168, 5228, 7660, 3904, 6615, 41832, 11, 729, 4008, 25, 29558, 678, 56015, 12579, 264, 20180, 5383, 304, 264, 914, 13, 614, 5733, 1141, 8, 2530, 3904, 25, 914, 20180, 25, 914, 13723, 25, 914, 220, 448, 470, 943, 914]
-2026-09-25 23:56:43,152 - INFO - System prompt encoded | token_count=256
-2026-09-25 23:56:43,152 - INFO - EXIT processing_system_prompt
-2026-09-25 23:56:43,153 - INFO - ENTER main_loop
-2026-09-25 23:56:43,153 - INFO - ENTER get_parameters_for_each_function
-2026-09-25 23:56:43,153 - DEBUG - Initializing parameter slots for function: fn_add_numbers
-2026-09-25 23:56:43,153 - DEBUG -   fn_add_numbers.a = None
-2026-09-25 23:56:43,153 - DEBUG -   fn_add_numbers.b = None
-2026-09-25 23:56:43,153 - DEBUG - Initializing parameter slots for function: fn_greet
-2026-09-25 23:56:43,153 - DEBUG -   fn_greet.name = None
-2026-09-25 23:56:43,153 - DEBUG - Initializing parameter slots for function: fn_reverse_string
-2026-09-25 23:56:43,153 - DEBUG -   fn_reverse_string.s = None
-2026-09-25 23:56:43,153 - DEBUG - Initializing parameter slots for function: fn_get_square_root
-2026-09-25 23:56:43,153 - DEBUG -   fn_get_square_root.a = None
-2026-09-25 23:56:43,153 - DEBUG - Initializing parameter slots for function: fn_substitute_string_with_regex
-2026-09-25 23:56:43,153 - DEBUG -   fn_substitute_string_with_regex.source_string = None
-2026-09-25 23:56:43,153 - DEBUG -   fn_substitute_string_with_regex.regex = None
-2026-09-25 23:56:43,153 - DEBUG -   fn_substitute_string_with_regex.replacement = None
-2026-09-25 23:56:43,153 - INFO - EXIT get_parameters_for_each_function | functions_initialized=5
-2026-09-25 23:56:43,153 - INFO - Beginning iteration over input_data | total_prompts=11
-2026-09-25 23:56:43,153 - DEBUG - encoding the text :
-0123456789-+
-2026-09-25 23:56:43,154 - INFO - text was encoded into :
-[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 12, 10]
-2026-09-25 23:56:43,154 - DEBUG - encoding the text :
-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ 	
-
-2026-09-25 23:56:43,154 - INFO - text was encoded into :
-[15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 67512, 75902, 8958, 48077, 4, 5, 6, 25010, 10, 4999, 1725, 25, 35058, 2179, 30, 31, 26056, 90304, 62, 63, 46115, 92, 93, 17476, 201, 199, 200]
-2026-09-25 23:56:43,154 - DEBUG - encoding the text :
-True
-2026-09-25 23:56:43,154 - INFO - text was encoded into :
-[2514]
-2026-09-25 23:56:43,154 - DEBUG - encoding the text :
-False
-2026-09-25 23:56:43,155 - INFO - text was encoded into :
-[4049]
-2026-09-25 23:56:43,155 - DEBUG - encoding the text :
- 	
-}"
-2026-09-25 23:56:43,155 - INFO - text was encoded into :
-[17476, 201, 199, 200, 9863]
-2026-09-25 23:56:43,155 - INFO - --- Processing prompt #0 ---
-2026-09-25 23:56:43,155 - DEBUG - Processing the prompt What is the sum of 2 and 3?
-2026-09-25 23:56:43,155 - DEBUG - encoding the text :
-What is the sum of 2 and 3?
-2026-09-25 23:56:43,155 - INFO - text was encoded into :
-[3838, 374, 279, 2629, 315, 220, 17, 323, 220, 18, 30]
-2026-09-25 23:56:43,155 - DEBUG - Merging The text with the system_prompt :
-[2610, 525, 264, 729, 9367, 13, 16246, 264, 1196, 1681, 11, 2550, 26687, 279, 829, 315, 279, 3175, 1850, 12579, 729, 504, 279, 1140, 3685, 13, 3155, 537, 10339, 13, 3155, 537, 912, 61503, 13, 9258, 4302, 3650, 279, 4734, 729, 829, 624, 2679, 4302, 9071, 11, 2550, 25, 2240, 198, 8610, 4008, 429, 990, 4244, 8290, 476, 1186, 16903, 1070, 476, 4113, 1643, 928, 277, 1181, 264, 20180, 25207, 1447, 12, 256, 729, 829, 25, 5168, 2891, 32964, 11, 729, 4008, 25, 2691, 1378, 5109, 3786, 323, 470, 862, 2629, 13, 614, 5733, 1141, 8, 264, 25, 1372, 293, 25, 1372, 220, 448, 470, 943, 1372, 198, 12, 256, 729, 829, 25, 5168, 1889, 3744, 11, 729, 4008, 25, 19813, 264, 42113, 1943, 369, 264, 1697, 553, 829, 13, 614, 5733, 1141, 8, 829, 25, 914, 220, 448, 470, 943, 914, 198, 12, 256, 729, 829, 25, 5168, 43277, 3904, 11, 729, 4008, 25, 24277, 264, 914, 323, 470, 279, 27437, 1102, 13, 614, 5733, 1141, 8, 274, 25, 914, 220, 448, 470, 943, 914, 198, 12, 256, 729, 829, 25, 5168, 3062, 39794, 12993, 11, 729, 4008, 25, 20517, 279, 9334, 3704, 315, 264, 1372, 13, 614, 5733, 1141, 8, 264, 25, 1372, 220, 448, 470, 943, 1372, 198, 12, 256, 729, 829, 25, 5168, 5228, 7660, 3904, 6615, 41832, 11, 729, 4008, 25, 29558, 678, 56015, 12579, 264, 20180, 5383, 304, 264, 914, 13, 614, 5733, 1141, 8, 2530, 3904, 25, 914, 20180, 25, 914, 13723, 25, 914, 220, 448, 470, 943, 914, 3838, 374, 279, 2629, 315, 220, 17, 323, 220, 18, 30]
-2026-09-25 23:56:43,155 - DEBUG - Combined prompt token_count=267
-2026-09-25 23:56:43,155 - DEBUG - Getting the function name for What is the sum of 2 and 3?
-2026-09-25 23:56:43,155 - INFO - ENTER get_function_name
-2026-09-25 23:56:43,155 - DEBUG - encoding the text :
-Answer with exactly valid json from the list above in the correct format {"name": "<fn>"}, nothing else.
-{"name": "
-2026-09-25 23:56:43,156 - INFO - text was encoded into :
-[16141, 448, 6896, 2697, 2951, 504, 279, 1140, 3403, 304, 279, 4396, 3561, 5212, 606, 788, 4055, 8822, 9877, 2137, 4302, 770, 624, 4913, 606, 788, 330]
-2026-09-25 23:56:43,156 - DEBUG - general_prompt token_count=294
-2026-09-25 23:56:43,156 - DEBUG - get_function_name loop iteration=1
-2026-09-25 23:56:44,525 - DEBUG - Getting Max Logit
-2026-09-25 23:56:44,534 - DEBUG - Max logit id found: 8822
-2026-09-25 23:56:44,535 - DEBUG - Decoded token at iteration 1: fn
-2026-09-25 23:56:44,535 - DEBUG - get_function_name loop iteration=2
-2026-09-25 23:56:45,807 - DEBUG - Getting Max Logit
-2026-09-25 23:56:45,811 - DEBUG - Max logit id found: 2891
-2026-09-25 23:56:45,811 - DEBUG - Decoded token at iteration 2: _add
-2026-09-25 23:56:45,812 - DEBUG - get_function_name loop iteration=3
-2026-09-25 23:56:46,990 - DEBUG - Getting Max Logit
-2026-09-25 23:56:46,994 - DEBUG - Max logit id found: 32964
-2026-09-25 23:56:46,994 - DEBUG - Decoded token at iteration 3: _numbers
-2026-09-25 23:56:46,994 - DEBUG - get_function_name loop iteration=4
-2026-09-25 23:56:48,208 - DEBUG - Getting Max Logit
-2026-09-25 23:56:48,213 - DEBUG - Max logit id found: 497
-2026-09-25 23:56:48,213 - DEBUG - Decoded token at iteration 4: ",
-2026-09-25 23:56:48,213 - DEBUG - Closing quote detected at iteration 4, breaking loop
-2026-09-25 23:56:48,213 - INFO - Function name :fn_add_numbers
-2026-09-25 23:56:48,213 - INFO - EXIT get_function_name | iterations=4
-2026-09-25 23:56:48,215 - INFO - Prompt #0 resolved function name: fn_add_numbers
-2026-09-25 23:56:48,215 - DEBUG - Getting the function parameters for What is the sum of 2 and 3?
-2026-09-25 23:56:48,215 - INFO - ENTER get_parameters | function_name=fn_add_numbers
-2026-09-25 23:56:48,215 - DEBUG - Parameter slots for fn_add_numbers: ['a', 'b']
-2026-09-25 23:56:48,215 - INFO - -- Resolving parameter: a --
-2026-09-25 23:56:48,215 - DEBUG - encoding the text :
-Answer with exactly one JSON value for the parameter "a".
-Output only the value, nothing else, no quotes unless it is a string.
-a = 
-2026-09-25 23:56:48,216 - INFO - text was encoded into :
-[16141, 448, 6896, 825, 4718, 897, 369, 279, 5733, 330, 64, 22956, 5097, 1172, 279, 897, 11, 4302, 770, 11, 902, 17194, 7241, 432, 374, 264, 914, 624, 64, 284, 220]
-2026-09-25 23:56:48,216 - DEBUG - get_parameters loop | parameter=a iteration=1
-2026-09-25 23:56:49,455 - DEBUG - Getting Max Logit
-2026-09-25 23:56:49,455 - DEBUG - Max logit id found: 17
-2026-09-25 23:56:49,455 - DEBUG - Getting the parameter 2
-2026-09-25 23:56:49,455 - DEBUG - get_parameters loop | parameter=a iteration=2
-2026-09-25 23:56:50,693 - DEBUG - Getting Max Logit
-2026-09-25 23:56:50,693 - DEBUG - Max logit id found: 18
-2026-09-25 23:56:50,693 - DEBUG - Getting the parameter 3
-2026-09-25 23:56:50,693 - DEBUG - get_parameters loop | parameter=a iteration=3
-2026-09-25 23:56:51,902 - DEBUG - Getting Max Logit
-2026-09-25 23:56:51,902 - DEBUG - Max logit id found: 19
-2026-09-25 23:56:51,902 - DEBUG - Getting the parameter 4
-2026-09-25 23:56:51,902 - DEBUG - get_parameters loop | parameter=a iteration=4
-2026-09-25 23:56:53,159 - DEBUG - Getting Max Logit
-2026-09-25 23:56:53,160 - DEBUG - Max logit id found: 20
-2026-09-25 23:56:53,160 - DEBUG - Getting the parameter 5
-2026-09-25 23:56:53,160 - DEBUG - get_parameters loop | parameter=a iteration=5
-2026-09-25 23:56:54,453 - DEBUG - Getting Max Logit
-2026-09-25 23:56:54,453 - DEBUG - Max logit id found: 21
-2026-09-25 23:56:54,453 - DEBUG - Getting the parameter 6
-2026-09-25 23:56:54,453 - DEBUG - get_parameters loop | parameter=a iteration=6
-2026-09-25 23:56:55,663 - DEBUG - Getting Max Logit
-2026-09-25 23:56:55,663 - DEBUG - Max logit id found: 22
-2026-09-25 23:56:55,663 - DEBUG - Getting the parameter 7
-2026-09-25 23:56:55,663 - DEBUG - get_parameters loop | parameter=a iteration=7
-2026-09-25 23:56:56,909 - DEBUG - Getting Max Logit
-2026-09-25 23:56:56,909 - DEBUG - Max logit id found: 23
-2026-09-25 23:56:56,909 - DEBUG - Getting the parameter 8
-2026-09-25 23:56:56,910 - DEBUG - get_parameters loop | parameter=a iteration=8
-2026-09-25 23:56:58,247 - DEBUG - Getting Max Logit
-2026-09-25 23:56:58,247 - DEBUG - Max logit id found: 24
-2026-09-25 23:56:58,247 - DEBUG - Getting the parameter 9
-2026-09-25 23:56:58,247 - DEBUG - get_parameters loop | parameter=a iteration=9
-2026-09-25 23:56:59,449 - DEBUG - Getting Max Logit
-2026-09-25 23:56:59,450 - DEBUG - Max logit id found: 15
-2026-09-25 23:56:59,450 - DEBUG - Getting the parameter 0
-2026-09-25 23:56:59,450 - DEBUG - get_parameters loop | parameter=a iteration=10
-2026-09-25 23:57:00,727 - DEBUG - Getting Max Logit
-2026-09-25 23:57:00,728 - DEBUG - Max logit id found: 16
-2026-09-25 23:57:00,728 - DEBUG - Getting the parameter 1
-2026-09-25 23:57:00,728 - DEBUG - get_parameters loop | parameter=a iteration=11
-2026-09-25 23:57:01,969 - DEBUG - Getting Max Logit
-2026-09-25 23:57:01,970 - DEBUG - Max logit id found: 17
-2026-09-25 23:57:01,970 - DEBUG - Getting the parameter 2
-2026-09-25 23:57:01,970 - DEBUG - get_parameters loop | parameter=a iteration=12
-2026-09-25 23:57:03,324 - DEBUG - Getting Max Logit
-2026-09-25 23:57:03,324 - DEBUG - Max logit id found: 18
-2026-09-25 23:57:03,324 - DEBUG - Getting the parameter 3
-2026-09-25 23:57:03,324 - DEBUG - get_parameters loop | parameter=a iteration=13
-2026-09-25 23:57:04,591 - DEBUG - close.started
-2026-09-25 23:57:04,591 - DEBUG - close.complete
+2026-09-26 14:14:16,256 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,256 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:16,256 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,256 - DEBUG - send_request_body.complete
+2026-09-26 14:14:16,256 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,387 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'232'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 26 Sep 2026 14:14:16 GMT'), (b'Location', b'/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fvocab.json=&etag=%224783fe10ac3adce15ac8f358ef5462739852c569%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6ab7d338-0a2f2b896c37736e7e36e209;db3e43a8-d6a6-4f33-b8a4-545eff7c3c59'), (b'RateLimit', b'"resolvers";r=2994;t=180'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'vocab.json; filename="vocab.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"4783fe10ac3adce15ac8f358ef5462739852c569"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'I5tDrrnFC3cgrmMqalfJmHp6Xnf1ia4lSGY4LhBqEFIPIiqgpLHgOg=='), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:16,388 - INFO - HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-26 14:14:16,388 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,388 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:16,388 - DEBUG - response_closed.started
+2026-09-26 14:14:16,388 - DEBUG - response_closed.complete
+2026-09-26 14:14:16,388 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,389 - DEBUG - send_request_headers.complete
+2026-09-26 14:14:16,389 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,389 - DEBUG - send_request_body.complete
+2026-09-26 14:14:16,389 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,414 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'2776833'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 18 Jun 2026 17:18:27 GMT'), (b'ETag', b'"4783fe10ac3adce15ac8f358ef5462739852c569"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a342863-559f5a8103351aca7be3a6d6'), (b'RateLimit', b'"resolvers";r=2949;t=213'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c1899de289a04d12100db370d81485cdf75e47ca'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'vocab.json; filename="vocab.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 98b6dca4385ec1f7f02195a0ad8115a0.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'MAD56-P4'), (b'Alt-Svc', b'h3=":443"; ma=86400'), (b'X-Amz-Cf-Id', b'wPAecm7t12_BkBmvegzZpNi2BFj3Qoj3nRHpY6pK4L0XoltON4zgHQ=='), (b'Age', b'8628949'), (b'Strict-Transport-Security', b'max-age=31536000')])
+2026-09-26 14:14:16,414 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3-0.6B/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json?%2FQwen%2FQwen3-0.6B%2Fresolve%2Fmain%2Fvocab.json=&etag=%224783fe10ac3adce15ac8f358ef5462739852c569%22 "HTTP/1.1 200 OK"
+2026-09-26 14:14:16,414 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2026-09-26 14:14:16,414 - DEBUG - receive_response_body.complete
+2026-09-26 14:14:16,414 - DEBUG - response_closed.started
+2026-09-26 14:14:16,414 - DEBUG - response_closed.complete
+2026-09-26 14:21:47,505 - DEBUG - close.started
+2026-09-26 14:21:47,509 - DEBUG - close.complete

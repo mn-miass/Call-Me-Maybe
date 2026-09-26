@@ -1,7 +1,7 @@
 
 import logging
 import sys
-
+import time
 
 from .parsing_files import ParsingFiles
 from .parsing_data import Parse_data
@@ -38,7 +38,7 @@ display_data(
     data.errors_functions
 )
 
-if not data.is_valid:
+if not data.is_valid():
     logging.critical("EXITING THE PROGRAM")
     sys.exit()
 
@@ -64,14 +64,14 @@ logging.info(
 )
 
 cd = ConstrainedDecoding(
-    model,
-    data.parsed_input_data,
     data.parsed_function_data,
-    files.output_file
+    data.parsed_input_data,
+    files.output_file.name,
+    model,
 )
+cd.run()
+cd.write_output()
+start = time.perf_counter()
 
-cd.generate_prompt()
-cd.get_vocabulary()
-cd.processing_system_prompt()
-cd.main_loop()
-cd.display_json()
+end = time.perf_counter()
+print(end - start)
