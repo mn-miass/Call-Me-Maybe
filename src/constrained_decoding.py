@@ -1,5 +1,194 @@
+# import logging
+# import json
+# import numpy as np
+
+
+# from llm_sdk import Small_LLM_Model
+# from .display_info import display_building_prompt
+
+
+# logging.basicConfig(
+#     filename = "log.log",
+#     level = logging.INFO,
+#     format = "%(asctime)s - %(levelname)s - %(message)s",
+#     filemode = "w"
+# )
+
+
+# class ConstrainedDecoding():
+#     def __init__(self, model: Small_LLM_Model, input_data, functions, output_file):
+#         self.model = model
+#         self.input_data = input_data
+#         self.functions = functions
+#         self.output_file = output_file
+
+#     def generate_prompt(self):
+#         logging.debug(
+#             f"Creating the prompt"
+#         )
+#         prompt =    "You are a function selector. Given a user request, output ONLY the name " \
+#                     "of the single best matching function from the list below. " \
+#                     "Do not explain. Do not add punctuation. Output nothing except the exact function name.\n" \
+#                     "If nothing matches, output: None\n" \
+#                     "Any description that use words replace or subtitute or anything simualar its a regex" \
+#                     "Functions:\n"
+
+#         for function in self.functions:
+#             parameters = ""
+#             for parameter in function.parameters:
+#                 parameters += f"{parameter}: {function.parameters[parameter].type.value} "
+#             function_prompt = f"\n-   function name: {function.name}, function description: {function.description} have parameter(s) {parameters} with return type {function.returns.type.value}"
+#             prompt += function_prompt
+#         self.system_prompt = prompt
+#         display_building_prompt()
+#         logging.info(
+#             f"\nthe system prompt was created: \n{self.system_prompt}"
+#         )
+
+#     def get_vocabulary(self):
+#         vocab_path = self.model.get_path_to_vocab_file()
+#         with open(vocab_path, "r") as file:
+#             self.vocab_data = json.load(file)
+
+#     def processing_system_prompt(self):
+#         self.encoded_system_prompt = self.encode_prompt(self.system_prompt)
+
+
+#     def encode_prompt(self, prompt):
+#         logging.debug(
+#             f"encoding the text :\n{prompt}"
+#         )
+#         encoded = self.model.encode(prompt).tolist()[0]
+#         logging.info(
+#             f"text was encoded into :\n{encoded}"
+#         )
+#         return encoded
+
+#     def get_max_value_id(self, logits):
+#         logging.debug(
+#             "Getting Max Logit"
+#         )
+#         return np.argmax(logits)
+
+#     def set_all_logits_to_invalid_except_valid_one(self, logits, valid_id, valid_value):
+#         logging.debug(
+#             f"Set alllogits to -inf except {valid_value}"
+#         )
+#         mask = np.full(len(logits, -np.inf))
+#         mask[valid_id] = 0
+#         logits = logits + mask
+#         return logits
+
+#     def check_if_max_logit_is_valid(self, logits, valid_id):
+#         return np.argmax(logits) == valid_id
+
+#     """
+#         Encode the system prompt only once (reduce the time)
+#         Encode each prompt only when its needed
+#     """
+#     def main_loop(self):
+#         result = []
+#         self.get_parameters_for_each_function()
+#         for prompt in self.input_data:
+#             logging.debug(
+#                 f"Processing the prompt {prompt.prompt}"
+#             )
+#             encoded_prompt = self.encode_prompt(prompt.prompt)
+#             the_current_prompt = self.encoded_system_prompt + encoded_prompt
+#             logging.debug(
+#                 f"Merging The text with the system_prompt :\n{the_current_prompt}"
+#             )
+#             prompt_data = {
+#                 "prompt": prompt.prompt
+#             }
+#             logging.debug(
+#                 f"Getting the function name for {prompt.prompt}"
+#             )
+#             name = self.get_function_name(the_current_prompt)
+#             logging.debug(
+#                 f"Getting the function parameters for {prompt.prompt}"
+#             )
+#             parameters = self.get_parameters(name, the_current_prompt)
+#             prompt_data["name"] = name
+#             prompt_data["parameters"] = parameters
+#             result.append(prompt_data)
+#             self.result = result
+
+#     def get_function_name(self, encoded_prompt):
+#         prompt = 'Answer with exactly valid json from the list above in the correct format {"name": "<fn>"}, nothing else.\n' \
+#                  '{"name": "'
+#         aditional_prompt = self.encode_prompt(prompt)
+#         general_prompt = encoded_prompt + aditional_prompt
+#         output = []
+#         while True:
+#             logits = self.model.get_logits_from_input_ids(general_prompt)
+#             max_logit = self.get_max_value_id(logits)
+#             if "\"" in self.model.decode(max_logit):
+#                 break 
+#             output.append(max_logit)
+#             general_prompt.append(max_logit)
+#         logging.info(
+#             f"Function name :{self.model.decode(output)}"
+#         )
+#         return self.model.decode(output)
+
+#     def get_parameters(self, function_name, encoded_prompt):
+#         if function_name == None:
+#             return None
+#         result = self.parameters[function_name]
+#         for element in result:
+#             prompt =    f'Answer with exactly one JSON value for the parameter "{element}".\n' \
+#                         f'Output only the value, nothing else, no quotes unless it is a string.\n' \
+#                         f'{element} = '
+#             output = []
+#             the_current_prompt = encoded_prompt + self.encode_prompt(prompt)
+#             count = 0
+#             while True:
+#                 logits = self.model.get_logits_from_input_ids(the_current_prompt)
+#                 max_logit = self.get_max_value_id(logits)
+#                 encoded_max_logits = self.model.decode(max_logit)
+#                 logging.debug(
+#                     f"Getting the parameter {encoded_max_logits}"
+#                 )
+#                 if "}" in encoded_max_logits or " " in encoded_max_logits  or "\n" in encoded_max_logits or "\t" in encoded_max_logits:
+#                     logging.debug(
+#                         f"Logit was {encoded_max_logits} End of parameter {result}"
+#                     )
+#                     result[element] = output
+#                     break
+#                 if "\"" in encoded_max_logits:
+#                     if count:
+#                         result[element] = "".join(output)
+#                         logging.debug(
+#                             f"Logit was {encoded_max_logits} End of parameter {result}"
+#                         )
+#                         break
+#                     else: count += 1
+#                 output.append(encoded_max_logits)
+#                 the_current_prompt.append(max_logit)
+#                 print(encoded_max_logits, flush=True, end="")
+#             output = []
+#         return result
+
+            
+#     def display_json(self):
+#         with open(self.output_file.name, "w") as file:
+#             print(self.result, flush=True)
+#             json.dump(self.result, file, indent=2)
+
+#     def get_parameters_for_each_function(self):
+#         parameters = {}
+#         for function in self.functions:
+#             parameters[function.name] = {}
+#             for parameter in function.parameters:
+#                 parameters[function.name][parameter] = None
+#         self.parameters = parameters
+
+
+
 import logging
 import json
+import string
 import numpy as np
 
 
@@ -17,12 +206,18 @@ logging.basicConfig(
 
 class ConstrainedDecoding():
     def __init__(self, model: Small_LLM_Model, input_data, functions, output_file):
+        logging.info(
+            f"Initializing ConstrainedDecoding | functions_count={len(functions)} "
+            f"input_count={len(input_data)} output_file={getattr(output_file, 'name', output_file)}"
+        )
         self.model = model
         self.input_data = input_data
         self.functions = functions
         self.output_file = output_file
+        logging.debug("ConstrainedDecoding instance attributes set")
 
     def generate_prompt(self):
+        logging.info("ENTER generate_prompt")
         logging.debug(
             f"Creating the prompt"
         )
@@ -33,25 +228,37 @@ class ConstrainedDecoding():
                     "Any description that use words replace or subtitute or anything simualar its a regex" \
                     "Functions:\n"
 
+        logging.debug(f"Base prompt initialized, length={len(prompt)}")
         for function in self.functions:
+            logging.debug(f"Appending function to prompt: {function.name}")
             parameters = ""
             for parameter in function.parameters:
                 parameters += f"{parameter}: {function.parameters[parameter].type.value} "
+                logging.debug(f"  parameter added: {parameter} ({function.parameters[parameter].type.value})")
             function_prompt = f"\n-   function name: {function.name}, function description: {function.description} have parameter(s) {parameters} with return type {function.returns.type.value}"
             prompt += function_prompt
+            logging.debug(f"Function {function.name} appended, running prompt length={len(prompt)}")
         self.system_prompt = prompt
         display_building_prompt()
         logging.info(
             f"\nthe system prompt was created: \n{self.system_prompt}"
         )
+        logging.info(f"EXIT generate_prompt | final system_prompt length={len(self.system_prompt)}")
 
     def get_vocabulary(self):
+        logging.info("ENTER get_vocabulary")
         vocab_path = self.model.get_path_to_vocab_file()
+        logging.debug(f"Vocabulary path resolved: {vocab_path}")
         with open(vocab_path, "r") as file:
             self.vocab_data = json.load(file)
+        logging.info(f"Vocabulary loaded | entries={len(self.vocab_data) if hasattr(self.vocab_data, '__len__') else 'unknown'}")
+        logging.info("EXIT get_vocabulary")
 
     def processing_system_prompt(self):
+        logging.info("ENTER processing_system_prompt")
         self.encoded_system_prompt = self.encode_prompt(self.system_prompt)
+        logging.info(f"System prompt encoded | token_count={len(self.encoded_system_prompt)}")
+        logging.info("EXIT processing_system_prompt")
 
 
     def encode_prompt(self, prompt):
@@ -68,28 +275,38 @@ class ConstrainedDecoding():
         logging.debug(
             "Getting Max Logit"
         )
-        return np.argmax(logits)
+        result = np.argmax(logits)
+        logging.debug(f"Max logit id found: {result}")
+        return result
 
-    def set_all_logits_to_invalid_except_valid_one(self, logits, valid_id, valid_value):
-        logging.debug(
-            f"Set alllogits to -inf except {valid_value}"
-        )
-        mask = np.full(len(logits, -np.inf))
-        mask[valid_id] = 0
+    def set_all_logits_to_invalid_except_valid(self, logits, valid_id):
+        mask = np.full(len(logits), -np.inf)
+        mask[list(valid_id)] = 0
         logits = logits + mask
         return logits
 
     def check_if_max_logit_is_valid(self, logits, valid_id):
-        return np.argmax(logits) == valid_id
+        result = np.argmax(logits) == valid_id
+        logging.debug(f"check_if_max_logit_is_valid | valid_id={valid_id} result={result}")
+        return result
 
     """
         Encode the system prompt only once (reduce the time)
         Encode each prompt only when its needed
     """
     def main_loop(self):
+        logging.info("ENTER main_loop")
         result = []
         self.get_parameters_for_each_function()
-        for prompt in self.input_data:
+        logging.info(f"Beginning iteration over input_data | total_prompts={len(self.input_data)}")
+        self.get_parameters_types()
+        self.encode_types()
+        print(self.types, flush=True, end="")
+        for idx, prompt in enumerate(self.input_data):
+            prompt_data = {
+                "prompt": prompt.prompt
+            }
+            logging.info(f"--- Processing prompt #{idx} ---")
             logging.debug(
                 f"Processing the prompt {prompt.prompt}"
             )
@@ -98,68 +315,142 @@ class ConstrainedDecoding():
             logging.debug(
                 f"Merging The text with the system_prompt :\n{the_current_prompt}"
             )
-            prompt_data = {
-                "prompt": prompt.prompt
-            }
+            logging.debug(f"Combined prompt token_count={len(the_current_prompt)}")
+            logging.debug(
+                f"Getting the function name for {prompt.prompt}"
+            )
             name = self.get_function_name(the_current_prompt)
+            logging.info(f"Prompt #{idx} resolved function name: {name}")
+            logging.debug(
+                f"Getting the function parameters for {prompt.prompt}"
+            )
             parameters = self.get_parameters(name, the_current_prompt)
+            logging.info(f"Prompt #{idx} resolved parameters: {parameters}")
             prompt_data["name"] = name
             prompt_data["parameters"] = parameters
             result.append(prompt_data)
-            self.result = result
+            logging.debug(f"New result is {result}")
+        logging.debug(f"Prompt #{idx} appended to result | result_size={len(result)}")
+        self.result = result
+        logging.info(f"EXIT main_loop | total_results={len(self.result)}")
 
     def get_function_name(self, encoded_prompt):
+        logging.info("ENTER get_function_name")
         prompt = 'Answer with exactly valid json from the list above in the correct format {"name": "<fn>"}, nothing else.\n' \
                  '{"name": "'
         aditional_prompt = self.encode_prompt(prompt)
         general_prompt = encoded_prompt + aditional_prompt
+        logging.debug(f"general_prompt token_count={len(general_prompt)}")
         output = []
+        iteration = 0
         while True:
+            iteration += 1
+            logging.debug(f"get_function_name loop iteration={iteration}")
             logits = self.model.get_logits_from_input_ids(general_prompt)
             max_logit = self.get_max_value_id(logits)
-            if "\"" in self.model.decode(max_logit):
+            decoded_token = self.model.decode(max_logit)
+            logging.debug(f"Decoded token at iteration {iteration}: {decoded_token}")
+            if "\"" in decoded_token:
+                logging.debug(f"Closing quote detected at iteration {iteration}, breaking loop")
                 break 
             output.append(max_logit)
             general_prompt.append(max_logit)
         logging.info(
             f"Function name :{self.model.decode(output)}"
         )
+        logging.info(f"EXIT get_function_name | iterations={iteration}")
         return self.model.decode(output)
 
     def get_parameters(self, function_name, encoded_prompt):
+        logging.info(f"ENTER get_parameters | function_name={function_name}")
         if function_name == None:
+            logging.info("function_name is None, EXIT get_parameters early with None")
             return None
-        result = self.parameters[function_name]
+        result = dict(self.parameters[function_name])
+        logging.debug(f"Parameter slots for {function_name}: {list(result.keys())}")
         for element in result:
+            logging.info(f"-- Resolving parameter: {element} --")
             prompt =    f'Answer with exactly one JSON value for the parameter "{element}".\n' \
                         f'Output only the value, nothing else, no quotes unless it is a string.\n' \
                         f'{element} = '
             output = []
             the_current_prompt = encoded_prompt + self.encode_prompt(prompt)
-            print(self.model.decode(the_current_prompt), flush=True, end="")
+            count = 0
+            iteration = 0
+            type_element = self.types[function_name][element]
             while True:
+                iteration += 1
+                logging.debug(f"get_parameters loop | parameter={element} iteration={iteration}")
                 logits = self.model.get_logits_from_input_ids(the_current_prompt)
+                if type_element == "NUMBER":
+                    logits = self.set_all_logits_to_invalid_except_valid(logits, self.numbers_encoded + self.close_encoded)
+                elif type_element == "STRING":
+                    logits = self.set_all_logits_to_invalid_except_valid(logits, self.strings_encoded + self.close_encoded)
+                elif type_element == "boolean":
+                    logits = self.set_all_logits_to_invalid_except_valid(logits, self.boolean_encoded + self.close_encoded)
                 max_logit = self.get_max_value_id(logits)
                 encoded_max_logits = self.model.decode(max_logit)
-                print(encoded_max_logits, flush=True, end="")
+                logging.debug(
+                    f"Getting the parameter {encoded_max_logits}"
+                )
                 if "}" in encoded_max_logits or " " in encoded_max_logits  or "\n" in encoded_max_logits or "\t" in encoded_max_logits:
+                    logging.debug(
+                        f"Logit was {encoded_max_logits} End of parameter {result}"
+                    )
+                    result[element] = output
+                    logging.info(f"Parameter {element} resolved (list form) via terminator token, iterations={iteration}")
                     break
                 if "\"" in encoded_max_logits:
-                    output = "".join(output)
-                    break
-                output.append(max_logit)
+                    if count:
+                        result[element] = "".join(output)
+                        logging.debug(
+                            f"Logit was {encoded_max_logits} End of parameter {result}"
+                        )
+                        logging.info(f"Parameter {element} resolved (string form) via closing quote, iterations={iteration}")
+                        break
+                    else:
+                        count += 1
+                        logging.debug(f"Opening quote detected for parameter {element}, count={count}")
+                output.append(encoded_max_logits)
                 the_current_prompt.append(max_logit)
+            output = []
+        logging.info(f"EXIT get_parameters | function_name={function_name} result={result}")
         return result
 
-            
+
     def display_json(self):
+        logging.info(f"ENTER display_json | writing to {self.output_file.name}")
         with open(self.output_file.name, "w") as file:
             json.dump(self.result, file, indent=2)
+        logging.info("EXIT display_json | write complete")
 
     def get_parameters_for_each_function(self):
+        logging.info("ENTER get_parameters_for_each_function")
         parameters = {}
         for function in self.functions:
+            logging.debug(f"Initializing parameter slots for function: {function.name}")
             parameters[function.name] = {}
             for parameter in function.parameters:
                 parameters[function.name][parameter] = None
+                logging.debug(f"  {function.name}.{parameter} = None")
         self.parameters = parameters
+        logging.info(f"EXIT get_parameters_for_each_function | functions_initialized={len(parameters)}")
+
+    def get_parameters_types(self):
+        types = {}
+        for function in self.functions:
+            types[function.name] = {}
+            for parameter in function.parameters:
+                types[function.name][parameter] = function.parameters[parameter].type.name
+        self.types = types
+
+    def encode_types(self):
+        numbers = string.digits + "-+"
+        strings = string.printable
+        close = string.whitespace + "}\""
+        boolean_true = "True"
+        boolean_false = "False"
+        self.numbers_encoded = self.encode_prompt(numbers)
+        self.strings_encoded = self.encode_prompt(strings)
+        self.boolean_encoded = self.encode_prompt(boolean_true) + self.encode_prompt(boolean_false)
+        self.close_encoded = self.encode_prompt(close)
