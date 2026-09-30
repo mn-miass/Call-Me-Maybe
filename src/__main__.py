@@ -70,6 +70,8 @@ cd = ConstrainedDecoding(
     files.output_file.name,
     model,
 )
+
 cd.main_loop()
+cd.display_json()
 end = time.perf_counter()
 print(end - start)
