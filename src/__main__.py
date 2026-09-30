@@ -63,15 +63,13 @@ logging.info(
     "\n\n=========================================Constrained Decoding===========================================\n\n"
 )
 
+start = time.perf_counter()
 cd = ConstrainedDecoding(
     data.parsed_function_data,
     data.parsed_input_data,
     files.output_file.name,
     model,
 )
-cd.run()
-cd.write_output()
-start = time.perf_counter()
-
+cd.main_loop()
 end = time.perf_counter()
 print(end - start)
