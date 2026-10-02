@@ -5,6 +5,7 @@ def display_checking_file(file_path, result):
     else:
         print(f"📂 File {file_path} Was Loaded Successfully\n")
 
+
 def display_data(file_path, errors):
     print(f"📄 Reading The File {file_path}")
     if errors:
@@ -13,6 +14,7 @@ def display_data(file_path, errors):
             print(error)
     else:
         print(f"✅ Parsing looks clean in the {file_path}\n")
+
 
 def display_model(model_name):
     print(f"🤖 Loading Model {model_name}")
