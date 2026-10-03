@@ -1,6 +1,7 @@
 import json
 import logging
 import sys
+from pathlib import Path
 from typing import Any, List, Union
 
 from .argument_parser import argument_parser
@@ -76,6 +77,10 @@ class ParsingFiles():
             self.output_file,
             self.functions_definition_file,
         ]
+
+        file_output = Path(self.output_file.name)
+        file_output.parent.mkdir(parents=True, exist_ok=True)
+
         for file in self.files:
             self.check_file(file)
 

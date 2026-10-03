@@ -6,11 +6,11 @@ from typing import Any, Dict, List, Optional, Union
 import numpy as np
 import numpy.typing as npt
 
-from llm_sdk import Small_LLM_Model
+from llm_sdk import Small_LLM_Model  # type: ignore
 
 
 logging.basicConfig(
-    filename="./src/log.log",
+    filename="log.log",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode="w"
@@ -122,11 +122,6 @@ class ConstrainedDecoding():
             f"User request: {f.description}\nBest function name: {f.name}\n"
             for f in self.functions
         )
-        examples += (
-            "User request: What is the weather today?\n"
-            "Best function name: None\n"
-            "User request: Tell me a joke\nBest function name: None\n"
-        )
         self.system_prompt: str = (
             SELECTOR_HEADER
             + "".join(self.functions_prompt.values())
@@ -153,7 +148,7 @@ class ConstrainedDecoding():
         """
         vocab_path = self.model.get_path_to_vocab_file()
         logging.info(f"Loading vocab file from {vocab_path}")
-        with open(vocab_path, "r", encoding="utf-8") as file:
+        with open(vocab_path, "r") as file:
             self.vocab_data: Dict[str, int] = json.load(file)
         logging.info(f"Vocab loaded | entries={len(self.vocab_data)}")
 
@@ -175,6 +170,11 @@ class ConstrainedDecoding():
         self.decimal_point_character: List[int] = [
             self.model.encode(".").tolist()[0][0]
         ]
+        self.space_characters: List[int] = [
+            token_id
+            for token, token_id in self.vocab_data.items()
+            if token.replace("Ġ", "") in ("", "-", "+")
+        ]
         self.strings_characters: List[int] = [
             token_id
             for token, token_id in self.vocab_data.items()
@@ -185,15 +185,21 @@ class ConstrainedDecoding():
         ]
         stop_tokens = [
             ",", "\n", "}", "}}", ", ", " ,", "\",", "\"}", "\"}\n",
-            "\", ", ')",', "}\n\n",
+            "\", ", ')",', "}\n\n", "}\n"
         ]
         self.stop_characters: List[int] = [
             self.model.encode(token).tolist()[0][0] for token in stop_tokens
+        ]
+        self.boolean_characters: List[int] = [
+            token_id
+            for token, token_id in self.vocab_data.items()
+            if token.replace("Ġ", "") in ("", "true", "false")
         ]
         logging.info(
             f"Character classes built | "
             f"integer={len(self.integer_characters)} "
             f"sign={len(self.sign_characters)} "
+            f"space={len(self.space_characters)} "
             f"strings={len(self.strings_characters)} "
             f"stop={len(self.stop_characters)}"
         )
@@ -290,9 +296,7 @@ class ConstrainedDecoding():
         iterations = 0
         while True:
             iterations += 1
-            logits = np.asarray(
-                self.model.get_logits_from_input_ids(current_prompt)
-            )
+            logits = self.model.get_logits_from_input_ids(current_prompt)
             mask = np.full(len(logits), -np.inf)
             mask[needed_characters_encoded] = 0
             logits = logits + mask
@@ -312,7 +316,13 @@ class ConstrainedDecoding():
             if iterations >= 50:
                 logging.warning("  function name hit the 50 token limit")
                 break
-        return "".join(output)
+        name = "".join(output)
+        if name == "None":
+            print("Model couldnt detect the function name for"
+                  f" the prompt {prompt}")
+            logging.critical(f"Unknown function name for the prompt {prompt}")
+            exit()
+        return name
 
     def _get_argument_types(self) -> None:
         """Map each function to the type of each of its parameters.
@@ -353,10 +363,11 @@ class ConstrainedDecoding():
             "For a regex, write a short pattern that matches only the "
             "parts to replace. "
             "For a replacement, write the exact text that goes in place "
-            "of each match "
-            "If you are asked for a path give the full path"
-            "(use the symbol itself when the request names a symbol)."
-            "\n\n"
+            "of each match. "
+            "If you are asked for a path, give the full path "
+            "(use the symbol itself when the request names a symbol). "
+            "Keep the sign of numbers: a negative number must keep its "
+            "minus sign.\n\n"
             'Request: "Replace all digits in \'a1b2\' with X"\n'
             '{"source_string": "a1b2", "regex": "\\\\d", '
             '"replacement": "X"}\n'
@@ -370,7 +381,9 @@ class ConstrainedDecoding():
             '\'a red car\'"\n'
             '{"source_string": "a red car", "regex": "red", '
             '"replacement": "blue"}\n'
-            'Request: "\'any operation on numbers\' 7 and 8"\n'
+            'Request: "Combine the numbers -2 and 3"\n'
+            '{"a": -2, "b": 3}\n'
+            'Request: "Combine the numbers 7 and 8"\n'
             '{"a": 7, "b": 8}\n\n'
             + self.functions_prompt[function_name]
             + f'\nRequest: "{prompt}"\n'
@@ -381,8 +394,8 @@ class ConstrainedDecoding():
             logging.debug(
                 f"  resolving parameter {parameter} (type={para_type})"
             )
-            prefix += f'"{parameter}": '
-            prefix += '"' if para_type == "string" else ""
+            prefix += f'"{parameter}":'
+            prefix += ' "' if para_type == "string" else ""
             current_prompt: List[int] = (
                 self.model.encode(main_prompt + prefix).tolist()[0]
             )
@@ -395,13 +408,20 @@ class ConstrainedDecoding():
                 allowed_char = (
                     self.integer_characters
                     + self.sign_characters
+                    + self.space_characters
                     + self.stop_characters
                 )
             elif para_type == "number":
                 allowed_char = (
                     self.integer_characters
                     + self.sign_characters
+                    + self.space_characters
                     + self.decimal_point_character
+                    + self.stop_characters
+                )
+            elif para_type == "boolean":
+                allowed_char = (
+                    self.boolean_characters
                     + self.stop_characters
                 )
             else:
@@ -410,18 +430,10 @@ class ConstrainedDecoding():
             param: Any = ""
             mask: Optional[npt.NDArray[Any]] = None
             for iteration in range(100):
-                logits = np.asarray(
-                    self.model.get_logits_from_input_ids(current_prompt)
-                )
+                logits = self.model.get_logits_from_input_ids(current_prompt)
                 if mask is None:
                     mask = np.full(len(logits), -np.inf)
                     mask[allowed_char] = 0
-                if logging.getLogger().isEnabledFor(logging.DEBUG):
-                    top = np.argsort(logits + mask)[-5:][::-1]
-                    logging.debug(
-                        f"    {parameter} iteration={iteration} "
-                        f"top5={[self.model.decode(int(t)) for t in top]}"
-                    )
                 max_logit = self._get_max(logits + mask)
                 decoded_max = self.model.decode(max_logit)
                 logging.debug(
@@ -430,7 +442,7 @@ class ConstrainedDecoding():
                 )
                 if para_type == "string":
                     if '"' in decoded_max:
-                        param += decoded_max.split('"')[0]
+                        param += decoded_max.split('"')[0].strip()
                         logging.debug(
                             f"  {parameter} closing quote found "
                             f"after {iteration} iterations"
@@ -460,8 +472,11 @@ class ConstrainedDecoding():
                     )
                 param = self._check_string(param)
             elif para_type == "number" or para_type == "integer":
-                prefix += param.strip() + ", "
+                prefix += " " + param.strip() + ", "
                 param = self._check_int(param, para_type)
+            elif para_type == "boolean":
+                param = self._check_boolean(param)
+                prefix += " " + str(param) + ", "
             else:
                 prefix += param + ", "
             logging.info(
@@ -533,3 +548,10 @@ class ConstrainedDecoding():
         if text.startswith("\""):
             text = text[1:]
         return text
+
+    @staticmethod
+    def _check_boolean(param: str) -> bool:
+        param = param.strip()
+        if param == "true" or param == "True":
+            return True
+        return False

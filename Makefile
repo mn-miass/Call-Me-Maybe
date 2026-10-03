@@ -1,5 +1,5 @@
 PY_VERSION = python3
-FILE = src
+FILE = ./src
 
 
 
@@ -22,10 +22,5 @@ clean:
 
 
 lint:
-	flake8 $(FILE)
-	mypy $(FILE) --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
-
-
-lint-strict:
-	flake8 $(FILE)
-	mypy $(FILE) --strict
+	uv run flake8 $(FILE)
+	uv run mypy $(FILE) --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs

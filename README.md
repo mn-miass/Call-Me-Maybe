@@ -274,7 +274,6 @@ The numbers below are measured on the provided example files. Fill them in with 
 AI was used as an assistant, never as a replacement for understanding:
 
 - **Learning:** explaining constrained decoding and its variants (logit masking, grammar/FSM-based, template-based, prefix constraints) and how they relate to this subject.
-- **Code review:** finding bugs in my decoding loop (wrong `if/elif` chain, type errors in the number parsing, missing values in the prompt prefix, list/array addition of logits).
 - **Tooling:** fixing flake8 and mypy errors, adding docstrings and type hints, and improving error handling.
 - **Documentation:** drafting this README from the subject requirements.
 

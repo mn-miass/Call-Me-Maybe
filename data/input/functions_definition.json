@@ -39,6 +39,18 @@
     }
   },
   {
+    "name": "fn_reverse_boolean",
+    "description": "Reverse a string and return the reversed result.",
+    "parameters": {
+      "s": {
+        "type": "boolean"
+      }
+    },
+    "returns": {
+      "type": "boolean"
+    }
+  },
+  {
     "name": "fn_get_square_root",
     "description": "Calculate the square root of a number.",
     "parameters": {

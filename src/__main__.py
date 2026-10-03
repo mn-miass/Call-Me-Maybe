@@ -4,9 +4,11 @@ import time
 
 from .parsing_files import ParsingFiles
 from .parsing_data import Parse_data
-from .display_info import display_data, display_model, display_model_error
+from .display_info import display_banner, display_checking_file, display_data
+from .display_info import display_model, display_model_error, display_summary
+from .display_info import display_decoding_start
 from .constrained_decoding import ConstrainedDecoding
-from llm_sdk import Small_LLM_Model
+from llm_sdk import Small_LLM_Model  # type: ignore
 
 
 def main() -> None:
@@ -21,7 +23,6 @@ def main() -> None:
     model cannot be loaded. The total running time is printed at the end.
     """
     start = time.perf_counter()
-
     logging.basicConfig(
         filename="./src/log.log",
         level=logging.INFO,
@@ -29,9 +30,25 @@ def main() -> None:
         filemode="w"
     )
 
+    display_banner()
     logging.info(f"\n\n{' PARSING PART ':=^70}\n\n")
 
     files = ParsingFiles()
+    display_checking_file(
+        files.input_file.name,
+        files.input_file.error
+    )
+
+    display_checking_file(
+        files.functions_definition_file.name,
+        files.functions_definition_file.error
+    )
+
+    display_checking_file(
+        files.output_file.name,
+        files.output_file.error
+    )
+
     data = Parse_data(
         files.input_file.data,
         files.functions_definition_file.data
@@ -53,8 +70,10 @@ def main() -> None:
 
     logging.info(f"\n\n{' Loading Model ':=^70}\n\n")
     try:
+        model_start = time.perf_counter()
         model = Small_LLM_Model(model_name=files.model)
-        display_model(files.model)
+        model_end = time.perf_counter()
+        display_model(files.model, model_end - model_start)
         logging.info(
             f"{files.model} Was Loaded successfully"
         )
@@ -63,10 +82,12 @@ def main() -> None:
         logging.critical(
             f"EXITING THE PROGRAM: {e}"
         )
+        display_model_error(files.model)
         sys.exit(1)
 
     logging.info(f"\n\n{' Constrained Decoding ':=^70}\n\n")
 
+    display_decoding_start(len(data.input_data), len(data.functions_data))
     cd = ConstrainedDecoding(
         data.parsed_function_data,
         data.parsed_input_data,
@@ -77,8 +98,12 @@ def main() -> None:
     cd.main_loop()
     cd.display_json()
     end = time.perf_counter()
-    print(end - start)
+    display_summary(len(data.input_data), len(data.functions_data), end-start,
+                    files.output_file.name)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except BaseException as e:
+        print(e)

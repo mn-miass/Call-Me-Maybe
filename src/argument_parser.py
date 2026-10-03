@@ -27,7 +27,7 @@ def argument_parser() -> argparse.Namespace:
             "Path to the output JSON file where results will be written. "
             "Defaults to %(default)s"
         ),
-        default="output.json"
+        default="data/output/function_calls.json"
     )
 
     parse.add_argument(
